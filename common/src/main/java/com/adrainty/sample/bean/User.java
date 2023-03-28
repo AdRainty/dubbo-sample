@@ -2,6 +2,7 @@ package com.adrainty.sample.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author AdRainty
@@ -10,18 +11,16 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class UserAddress {
+@NoArgsConstructor
+public class User {
 
     private Integer id;
 
-    private String address;
-
     private String userId;
 
-    private String consignee;
+    private String username;
 
     private String phoneNum;
 
-    private String isDefault;
 
 }
