@@ -5,6 +5,8 @@ import com.adrainty.sample.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -21,11 +23,21 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserInfo(String userId) {
-        return null;
+
+        User userResult = null;
+        try {
+            Criteria criteria = new Criteria();
+            criteria.and("userId").is(userId);
+            Query query = new Query(criteria);
+            userResult = mongoTemplate.findOne(query, User.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userResult;
     }
 
     @Override
     public void add(User user) {
-
+        this.mongoTemplate.insert(user);
     }
 }

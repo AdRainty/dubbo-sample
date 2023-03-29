@@ -8,20 +8,21 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>user-service</artifactId>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
+    <version>1.0.0</version>
     <dependencies>
         <dependency>
             <groupId>com.adrainty</groupId>
             <artifactId>common</artifactId>
             <version>1.0.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
+    <packaging>war</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
 </project>

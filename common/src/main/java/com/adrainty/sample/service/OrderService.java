@@ -1,8 +1,7 @@
 package com.adrainty.sample.service;
 
 import com.adrainty.sample.bean.Order;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author AdRainty
@@ -12,15 +11,14 @@ import java.util.List;
 public interface OrderService {
 
     /**
-     * 初始化订单
-     * @param userId 用户Id
-     */
-    void initOrder(String userId);
-
-    /**
      * 获得用户关联订单信息
      * @param userId 用户Id
      */
-    List<Order> getOrderByUserId(String userId);
+    Order getOrderByUserId(@RequestParam String userId);
 
+    /**
+     * 添加订单
+     * @param order 订单实体类
+     */
+    void add(Order order);
 }

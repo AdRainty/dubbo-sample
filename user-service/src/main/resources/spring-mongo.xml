@@ -8,11 +8,11 @@
 
     <context:property-placeholder location="classpath*:mongo.properties" />
 
-    <!--   使用用户名密码 -->
-    <mongo:db-factory username="${mongo.username}" password="${mongo.password}" dbname="${mongo.databaseName}" host="${mongo.host}"/>
+    <mongo:mongo host="${mongo.host}" port="27017"/>
 
-    <bean id="mongoTemplate"
-          class="org.springframework.data.mongodb.core.MongoTemplate">
-        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg ref="mongo"/>
+        <constructor-arg name="databaseName" value="user"/>
+        <!--<constructor-arg ref="userCredentials"/>-->
     </bean>
 </beans>

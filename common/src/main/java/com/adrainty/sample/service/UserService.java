@@ -2,8 +2,6 @@ package com.adrainty.sample.service;
 
 import com.adrainty.sample.bean.User;
 
-import java.util.List;
-
 /**
  * @author AdRainty
  * @version V1.0.0

@@ -1,14 +1,9 @@
 package com.adrainty.sample.controller;
 
 import com.adrainty.sample.bean.Order;
-import com.adrainty.sample.bean.OrderBo;
 import com.adrainty.sample.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author AdRainty
@@ -16,16 +11,21 @@ import java.util.List;
  * @date 2023/3/28 22:22
  */
 
-@Controller
+@RestController
 @RequestMapping("/order")
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/")
-    public List<Order> getOrderByUser(String userId){
-        return orderService.getOrderByUserId(userId);
+    @GetMapping("/info")
+    public Order getOrderByUser(@RequestParam String orderId){
+        return orderService.getOrderByUserId(orderId);
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody Order order){
+        orderService.add(order);
     }
 
 }

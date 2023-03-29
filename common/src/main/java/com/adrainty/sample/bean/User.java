@@ -22,5 +22,7 @@ public class User {
 
     private String phoneNum;
 
+    private String orderId;
+
 
 }

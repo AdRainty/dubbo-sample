@@ -15,9 +15,9 @@
     <dubbo:protocol name="dubbo" port="20900"/>
 
     <!-- 暴露服务 -->
-    <dubbo:service interface="com.adrainty.sample.service.UserService" ref="userService" />
+    <dubbo:service interface="com.adrainty.sample.service.UserService" ref="userServiceImpl" />
 
     <!-- 服务的实现 -->
-    <bean id="userService" class="com.adrainty.sample.service.impl.UserServiceImpl"/>
+    <bean id="userServiceImpl" class="com.adrainty.sample.service.impl.UserServiceImpl"/>
 
 </beans>

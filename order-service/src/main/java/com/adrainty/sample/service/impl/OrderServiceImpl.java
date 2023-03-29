@@ -1,6 +1,8 @@
 package com.adrainty.sample.service.impl;
 
 import com.adrainty.sample.bean.Order;
+import com.adrainty.sample.bean.User;
+import com.adrainty.sample.dao.OrderDao;
 import com.adrainty.sample.service.OrderService;
 import com.adrainty.sample.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +19,20 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    private OrderService orderService;
+    private UserService userService;
+
+    @Autowired
+    private OrderDao orderDao;
 
     @Override
-    public void initOrder(String userId) {
-
+    public Order getOrderByUserId(String userId) {
+        User userInfo = userService.getUserInfo(userId);
+        String orderId = userInfo.getOrderId();
+        return orderDao.getOrderInfo(orderId);
     }
 
     @Override
-    public List<Order> getOrderByUserId(String userId) {
-        return null;
+    public void add(Order order) {
+        orderDao.add(order);
     }
 }
